@@ -5,26 +5,27 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // Encapsulation
-    [SerializeField] private float rotationSpeed = 45.0f;
-    [SerializeField] private float shootSpeed = 2;
-    [SerializeField] private float laserAlive = 0.25f;
+    private float rotationSpeed = 100;
+    private float shootSpeed = 0.5f;
+    private float laserAlive = 0.25f;
+    private float horizontalInput;
+    private bool isShooting = false;
+
     [SerializeField] private GameObject singleLaser;
     [SerializeField] private GameObject triLaser;
     [SerializeField] private GameObject spreadLaser;
     [SerializeField] private GameObject ABSLaser;
-    private float horizontalInput;
-    private bool isShooting = false;
-    [SerializeField] private LaserType currentLaser = LaserType.Single;
+
+    private LaserType currentLaser = LaserType.Single;
 
     private void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Rotate(Vector3.up, rotationSpeed * horizontalInput * Time.deltaTime);
 
-        CheckLaserType();
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            CheckLaserType();
             ShootLasers();
         }
     }

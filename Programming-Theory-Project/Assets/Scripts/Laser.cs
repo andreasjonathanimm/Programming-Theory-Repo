@@ -7,7 +7,9 @@ public enum LaserType { Single, Tri, Spread, ABSSpread }
 public class Laser : MonoBehaviour
 {
     public LaserType laserType;
-    [SerializeField] private float rotationSpeed;
+
+    // Encapsulation
+    private float rotationSpeed = 100;
 
     private void Update()
     {

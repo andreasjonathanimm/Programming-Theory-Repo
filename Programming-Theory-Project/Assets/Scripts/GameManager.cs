@@ -9,6 +9,8 @@ using UnityEditor;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    // Encapsulation
     private int menuIndex = 0;
     private int mainIndex = 1;
 
@@ -35,7 +37,7 @@ public class GameManager : MonoBehaviour
 
     public void Exit()
     {
-        // ABSTRACTION
+        // Abstraction
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
 #else

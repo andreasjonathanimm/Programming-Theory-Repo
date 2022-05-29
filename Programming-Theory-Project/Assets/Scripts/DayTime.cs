@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DayTime : MonoBehaviour
 {
+    // Encapsulation
     private float rotationSpeed;
     public float dayLength;
 

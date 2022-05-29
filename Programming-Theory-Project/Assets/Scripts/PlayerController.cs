@@ -92,4 +92,14 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(1/shootSpeed);
         isShooting = false;
     }
+
+    // Abstraction
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("LaserType"))
+        {
+            currentLaser = other.gameObject.GetComponent<Laser>().laserType;
+            Destroy(other.gameObject);
+        }
+    }
 }

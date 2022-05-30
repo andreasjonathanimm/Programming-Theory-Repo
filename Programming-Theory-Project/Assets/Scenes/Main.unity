@@ -280,7 +280,6 @@ MonoBehaviour:
   - {fileID: 8339991293233841863, guid: 08fa0be052d85564a8a3f583cb2c6737, type: 3}
   - {fileID: 8339991293233841863, guid: c2330290e24632e47a7cbeab48813bd7, type: 3}
   - {fileID: 8339991293233841863, guid: 21bc2cbcfbbcfe649a825d979a32b430, type: 3}
-  spawnRange: 18
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

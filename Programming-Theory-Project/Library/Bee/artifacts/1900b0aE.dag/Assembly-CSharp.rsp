@@ -357,6 +357,7 @@
 "Assets/Scripts/Enemy.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/Laser.cs"
+"Assets/Scripts/Octagon.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/SpawnManager.cs"
 -langversion:9.0

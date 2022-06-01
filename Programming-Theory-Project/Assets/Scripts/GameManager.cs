@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 #endif
 
+/// <summary>
+/// Contains indexes for Scenes and allows exiting the Application
+/// </summary>
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -25,16 +28,25 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    /// <summary>
+    /// Loads the Menu
+    /// </summary>
     public void LoadMenu()
     {
         SceneManager.LoadScene(menuIndex);
     }
 
+    /// <summary>
+    /// Loads the Main Scene
+    /// </summary>
     public void LoadMain()
     {
         SceneManager.LoadScene(mainIndex);
     }
 
+    /// <summary>
+    /// Exits the game
+    /// </summary>
     public void Exit()
     {
         // Abstraction

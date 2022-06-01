@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Creates a DayTime cycle
+/// </summary>
 public class DayTime : MonoBehaviour
 {
     // Encapsulation

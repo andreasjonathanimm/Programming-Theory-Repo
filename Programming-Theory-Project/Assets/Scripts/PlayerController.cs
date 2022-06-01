@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Controls the Player rotation and shooting
+/// </summary>
 public class PlayerController : MonoBehaviour
 {
     // Encapsulation
@@ -20,9 +23,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        // Rotates horizontally
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Rotate(Vector3.up, rotationSpeed * horizontalInput * Time.deltaTime);
 
+        // Checks current LaserType and fires it
         if (Input.GetKeyDown(KeyCode.Space))
         {
             CheckLaserType();
@@ -30,9 +35,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Checks the current LaserType and change the shooting speed
+    /// </summary>
     // Abstraction
     private void CheckLaserType()
     {
+
         if (currentLaser == LaserType.Single)
         {
             shootSpeed = 2;
@@ -54,6 +63,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+
+    /// <summary>
+    /// Shoots Laser by the LaserType when currently not shooting
+    /// </summary>
     // Abstraction
     private void ShootLasers()
     {
@@ -83,9 +97,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Adds a cooldown to the shooting lasers
+    /// </summary>
     // Abstraction
     IEnumerator ShootOneShot(GameObject laser)
-    {
+    { 
         laser.SetActive(true);
         yield return new WaitForSeconds(laserAlive);
         laser.SetActive(false);
@@ -96,10 +113,19 @@ public class PlayerController : MonoBehaviour
     // Abstraction
     private void OnTriggerEnter(Collider other)
     {
+        // If the laser collides with a LaserType, get its type and destroys it
         if (other.CompareTag("LaserType"))
         {
             currentLaser = other.gameObject.GetComponent<Laser>().laserType;
             Destroy(other.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(gameObject.CompareTag("Laser") && collision.gameObject.CompareTag("Enemy"))
+        {
+
         }
     }
 }

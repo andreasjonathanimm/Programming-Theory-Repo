@@ -8,11 +8,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // Encapsulation
+    private float health = 3.14f;
     private float rotationSpeed = 100;
     private float shootSpeed = 0.5f;
+    private float laserDamage = 1;
     private float laserAlive = 0.25f;
     private float horizontalInput;
     private bool isShooting = false;
+    private bool gameOver = false;
 
     [SerializeField] private GameObject singleLaser;
     [SerializeField] private GameObject triLaser;
@@ -23,15 +26,18 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        // Rotates horizontally
-        horizontalInput = Input.GetAxis("Horizontal");
-        transform.Rotate(Vector3.up, rotationSpeed * horizontalInput * Time.deltaTime);
-
-        // Checks current LaserType and fires it
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!gameOver)
         {
-            CheckLaserType();
-            ShootLasers();
+            // Rotates horizontally
+            horizontalInput = Input.GetAxis("Horizontal");
+            transform.Rotate(Vector3.up, rotationSpeed * horizontalInput * Time.deltaTime);
+
+            // Checks current LaserType and fires it
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                CheckLaserType();
+                ShootLasers();
+            }
         }
     }
 
@@ -45,25 +51,27 @@ public class PlayerController : MonoBehaviour
         if (currentLaser == LaserType.Single)
         {
             shootSpeed = 2;
+            laserDamage = 1;
         }
 
         if (currentLaser == LaserType.Tri)
         {
-            shootSpeed = 2.6f;
+            shootSpeed = 3;
+            laserDamage = 0.75f;
         }
 
         if (currentLaser == LaserType.Spread)
         {
-            shootSpeed = 3;
+            shootSpeed = 5;
+            laserDamage = 0.4f;
         }
 
         if (currentLaser == LaserType.ABSSpread)
         {
-            shootSpeed = 5;
+            shootSpeed = 10;
+            laserDamage = 0.2f;
         }
     }
-
-
 
     /// <summary>
     /// Shoots Laser by the LaserType when currently not shooting
@@ -98,6 +106,20 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
+    /// Damages the Player
+    /// </summary>
+    /// <param name="damage"></param>
+    // Abstraction
+    private void Damage(float damage)
+    {
+        health -= damage;
+        if(health <= 0)
+        {
+            gameOver = true;
+        }
+    }
+
+    /// <summary>
     /// Adds a cooldown to the shooting lasers
     /// </summary>
     // Abstraction
@@ -123,9 +145,17 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(gameObject.CompareTag("Laser") && collision.gameObject.CompareTag("Enemy"))
-        {
-
+        if (collision.gameObject.CompareTag("Enemy") && !gameOver) {
+            Enemy enemyScript = collision.gameObject.GetComponent<Enemy>();
+            if (gameObject.CompareTag("Laser"))
+            {
+                enemyScript.Damage(laserDamage);
+            }
+            if (gameObject.CompareTag("Player"))
+            {
+                Damage(enemyScript.GetDamage());
+                Destroy(collision.gameObject);
+            }
         }
     }
 }

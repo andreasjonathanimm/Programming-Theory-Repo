@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5868440767315053323}
-  - component: {fileID: 8053500969951247765}
+  - component: {fileID: -5991908863840763836}
   m_Layer: 0
   m_Name: Prism
   m_TagString: Enemy
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8053500969951247765
+--- !u!114 &-5991908863840763836
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,7 +42,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 241160646447119260}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a4825f2549967546bd00ef14a5c7210, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ee5605f1da291440bcd47000f0a7c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5033394949337031258

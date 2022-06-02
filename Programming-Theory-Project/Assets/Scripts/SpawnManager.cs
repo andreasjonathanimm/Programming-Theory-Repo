@@ -18,6 +18,16 @@ public class SpawnManager : MonoBehaviour
         SpawnLaserPowerUp();
         SpawnEnemies(waveCount);
     }
+
+    private void Update()
+    {
+        if(GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
+        {
+            SpawnLaserPowerUp();
+            waveCount++;
+            SpawnEnemies(waveCount);
+        }
+    }
     /// <summary>
     /// Generates random position of X and Z within the spawn distance
     /// </summary>
@@ -55,6 +65,7 @@ public class SpawnManager : MonoBehaviour
     /// <summary>
     /// Spawns a random Enemy in range of more than 8 distance of Player
     /// </summary>
+    // Abstraction
     private void SpawnEnemies(int count)
     {
         for (int i = 0; i < count; i++)

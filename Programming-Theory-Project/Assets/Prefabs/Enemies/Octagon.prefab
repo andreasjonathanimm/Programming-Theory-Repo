@@ -841,7 +841,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3432571505996620044}
-  - component: {fileID: -3901736340701996216}
+  - component: {fileID: -5912535551425163671}
   m_Layer: 0
   m_Name: Octagon
   m_TagString: Enemy
@@ -865,7 +865,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-3901736340701996216
+--- !u!114 &-5912535551425163671
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -874,6 +874,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8197409715590833979}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a4825f2549967546bd00ef14a5c7210, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c9f97c4aa2ed0e409f32913088132a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minion: {fileID: 3677057234873168639, guid: 2544325e1f372ea4db1cc8772f2e73a3, type: 3}

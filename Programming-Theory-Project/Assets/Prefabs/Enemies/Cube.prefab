@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6819944651806080782}
-  - component: {fileID: 8489548258993486045}
+  - component: {fileID: 4379830622926257034}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Enemy
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8489548258993486045
+--- !u!114 &4379830622926257034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,7 +42,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7863282646381620035}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a4825f2549967546bd00ef14a5c7210, type: 3}
+  m_Script: {fileID: 11500000, guid: 220c9f3a99e05d846b6e0425a739dbe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &9103788107218334395

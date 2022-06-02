@@ -342,6 +342,12 @@ MonoBehaviour:
   - {fileID: 8339991293233841863, guid: 08fa0be052d85564a8a3f583cb2c6737, type: 3}
   - {fileID: 8339991293233841863, guid: c2330290e24632e47a7cbeab48813bd7, type: 3}
   - {fileID: 8339991293233841863, guid: 21bc2cbcfbbcfe649a825d979a32b430, type: 3}
+  enemyPrefabs:
+  - {fileID: 7863282646381620035, guid: bdb7cdea2a21f224293ac4b0ee462012, type: 3}
+  - {fileID: 5334132613261196930, guid: ce673c450e5a95444b888032d914464e, type: 3}
+  - {fileID: 8197409715590833979, guid: 3d2894cb6ff1a3845a2cd0b270caaeba, type: 3}
+  - {fileID: 241160646447119260, guid: f30c783a585fa6247bc8ef52eba9d01c, type: 3}
+  - {fileID: 3677057234873168639, guid: f520589004eb1c94f98bafde456bbd1a, type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,6 +537,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 222828823010698029, guid: 4a2052e312078134db9b1df02fd622ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6075444075127620745, guid: 4a2052e312078134db9b1df02fd622ff, type: 3}
       propertyPath: m_RootOrder
       value: 1

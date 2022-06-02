@@ -388,7 +388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4071368204711838501}
-  - component: {fileID: -5045930842771363052}
+  - component: {fileID: -5665281002126073073}
   m_Layer: 0
   m_Name: Pyramid
   m_TagString: Enemy
@@ -412,7 +412,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-5045930842771363052
+--- !u!114 &-5665281002126073073
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -421,6 +421,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3677057234873168639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a4825f2549967546bd00ef14a5c7210, type: 3}
+  m_Script: {fileID: 11500000, guid: 45b2a04e8350b3447a5a4961528c8487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

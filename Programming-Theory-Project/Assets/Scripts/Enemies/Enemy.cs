@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     protected float damage;
     protected float speed;
     protected GameObject player;
+    protected PlayerController playerController;
 
     /// <summary>
     /// Move towards the Player as fast as speed with Translate and LookAt
@@ -39,7 +40,8 @@ public class Enemy : MonoBehaviour
     /// Damages the Enemy
     /// </summary>
     /// <param name="damage"></param>
-    public void Damage(float damage)
+    // Abstraction
+    protected void Damage(float damage)
     {
         health -= damage;
         if (health <= 0)
@@ -48,12 +50,23 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Returns the Enemy damage
-    /// </summary>
-    /// <returns></returns>
-    public float GetDamage()
+    protected void OnTriggerEnter(Collider other)
     {
-        return damage;
+        // If it isn't game over, do two things:
+        // 1. If the Enemy collides with the Player, damages the Player and destroy self
+        // 2. If the Enemy collides with the Laser, damages the Enemy
+        PlayerController playerController = player.GetComponent<PlayerController>();
+        if (!playerController.gameOver)
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                playerController.Damage(damage);
+                Destroy(gameObject);
+            }
+            if (other.gameObject.CompareTag("Laser"))
+            {
+                Damage(playerController.laserDamage);
+            }
+        }
     }
 }

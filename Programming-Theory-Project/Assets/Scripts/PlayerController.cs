@@ -11,11 +11,11 @@ public class PlayerController : MonoBehaviour
     private float health = 3.14f;
     private float rotationSpeed = 100;
     private float shootSpeed = 0.5f;
-    private float laserDamage = 1;
+    public float laserDamage { get; private set; }
     private float laserAlive = 0.25f;
     private float horizontalInput;
     private bool isShooting = false;
-    private bool gameOver = false;
+    public bool gameOver { get; private set; }
 
     [SerializeField] private GameObject singleLaser;
     [SerializeField] private GameObject triLaser;
@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject ABSLaser;
 
     private LaserType currentLaser = LaserType.Single;
+    private void Start()
+    {
+        gameOver = false;
+    }
 
     private void Update()
     {
@@ -110,7 +114,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     /// <param name="damage"></param>
     // Abstraction
-    private void Damage(float damage)
+    public void Damage(float damage)
     {
         health -= damage;
         if(health <= 0)
@@ -125,6 +129,7 @@ public class PlayerController : MonoBehaviour
     // Abstraction
     IEnumerator ShootOneShot(GameObject laser)
     { 
+        // Activates the laser for a certain duration of time, then turns it off, cooldowns it, and reset
         laser.SetActive(true);
         yield return new WaitForSeconds(laserAlive);
         laser.SetActive(false);
@@ -132,7 +137,6 @@ public class PlayerController : MonoBehaviour
         isShooting = false;
     }
 
-    // Abstraction
     private void OnTriggerEnter(Collider other)
     {
         // If the laser collides with a LaserType, get its type and destroys it
@@ -140,22 +144,6 @@ public class PlayerController : MonoBehaviour
         {
             currentLaser = other.gameObject.GetComponent<Laser>().laserType;
             Destroy(other.gameObject);
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy") && !gameOver) {
-            Enemy enemyScript = collision.gameObject.GetComponent<Enemy>();
-            if (gameObject.CompareTag("Laser"))
-            {
-                enemyScript.Damage(laserDamage);
-            }
-            if (gameObject.CompareTag("Player"))
-            {
-                Damage(enemyScript.GetDamage());
-                Destroy(collision.gameObject);
-            }
         }
     }
 }

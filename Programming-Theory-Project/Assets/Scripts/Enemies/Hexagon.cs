@@ -16,7 +16,7 @@ public class Hexagon : Enemy
         health = 6;
         speed = 0.5f;
         damage = 0.2f;
-        InvokeRepeating("SpawnMinions(minion, 2)", 1, 2);
+        SpawnMinions(minion, 2);
     }
 
     private void Update()

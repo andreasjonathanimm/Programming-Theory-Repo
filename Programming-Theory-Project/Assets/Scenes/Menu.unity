@@ -1379,6 +1379,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere
       objectReference: {fileID: 0}
+    - target: {fileID: 8283740508653589896, guid: 4a2052e312078134db9b1df02fd622ff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 579935407, guid: 4a2052e312078134db9b1df02fd622ff, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4a2052e312078134db9b1df02fd622ff, type: 3}

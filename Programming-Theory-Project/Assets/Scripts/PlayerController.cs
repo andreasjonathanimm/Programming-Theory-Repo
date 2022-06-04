@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 /// <summary>
 /// Controls the Player rotation and shooting
@@ -11,11 +13,14 @@ public class PlayerController : MonoBehaviour
     private float health = 3.14f;
     private float rotationSpeed = 100;
     private float shootSpeed = 0.5f;
+    private float score = 0;
     public float laserDamage { get; private set; }
     private float laserAlive = 0.25f;
     private float horizontalInput;
     private bool isShooting = false;
     public bool gameOver { get; private set; }
+
+    [SerializeField] private TextMeshProUGUI scoreText;
 
     [SerializeField] private GameObject singleLaser;
     [SerializeField] private GameObject triLaser;
@@ -121,6 +126,12 @@ public class PlayerController : MonoBehaviour
         {
             gameOver = true;
         }
+    }
+
+    public void AddScore(float score)
+    {
+        this.score += score;
+        scoreText.text = "Score: " + this.score;
     }
 
     /// <summary>

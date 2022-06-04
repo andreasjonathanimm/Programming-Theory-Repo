@@ -23,7 +23,7 @@ public class SpawnManager : MonoBehaviour
     {
         if(GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
         {
-            SpawnLaserPowerUp();
+            if (waveCount % 2 == 0) { SpawnLaserPowerUp(); }
             waveCount++;
             SpawnEnemies(waveCount);
         }

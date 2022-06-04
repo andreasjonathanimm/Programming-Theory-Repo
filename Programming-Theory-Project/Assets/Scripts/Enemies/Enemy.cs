@@ -9,10 +9,17 @@ public class Enemy : MonoBehaviour
 {
     // Encapsulation
     protected float health;
+    protected float score;
     protected float damage;
     protected float speed;
     protected GameObject player;
     protected PlayerController playerController;
+
+    protected void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
+    }
 
     /// <summary>
     /// Move towards the Player as fast as speed with Translate and LookAt
@@ -31,9 +38,9 @@ public class Enemy : MonoBehaviour
     /// <param name="minion"></param>
     /// <param name="times"></param>
     // Abstraction
-    protected void SpawnMinions(GameObject minion, int times)
+    protected void SpawnMinions(GameObject minion, int times, float range)
     {
-        for (int i = 0; i < times; i++) { Instantiate(minion, gameObject.transform.position, minion.transform.rotation); }
+        for (int i = 0; i < times; i++) { Instantiate(minion, gameObject.transform.position + new Vector3(Random.Range(-range, range), 0, Random.Range(-range, range)), minion.transform.rotation); }
     }
 
     /// <summary>
@@ -43,9 +50,11 @@ public class Enemy : MonoBehaviour
     // Abstraction
     protected void Damage(float damage)
     {
+        if (score <= 0) { score = health; }
         health -= damage;
         if (health <= 0)
         {
+            playerController.AddScore(score);
             Destroy(gameObject);
         }
     }
@@ -55,7 +64,7 @@ public class Enemy : MonoBehaviour
         // If it isn't game over, do two things:
         // 1. If the Enemy collides with the Player, damages the Player and destroy self
         // 2. If the Enemy collides with the Laser, damages the Enemy
-        PlayerController playerController = player.GetComponent<PlayerController>();
+        
         if (!playerController.gameOver)
         {
             if (other.gameObject.CompareTag("Player"))

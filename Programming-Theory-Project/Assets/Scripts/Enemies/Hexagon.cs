@@ -10,22 +10,32 @@ public class Hexagon : Enemy
 {
     // Encapsulation
     [SerializeField] private GameObject minion;
+    private bool hasSpawn = true;
     // Polymorphism
     private void Start()
     {
         health = 6;
         speed = 0.5f;
         damage = 0.2f;
-        SpawnMinions(minion, 2);
+        InvokeRepeating("SpawnMinions", 1, 3);
     }
 
     private void Update()
     {
         Move();
+        if(health <= 3 && hasSpawn)
+        {
+            SpawnMinions(minion, 3, 3);
+            hasSpawn = false;
+        }
         if(health <= 0)
         {
-            SpawnMinions(minion, 2);
             Destroy(gameObject);
         }
+    }
+
+    private void SpawnMinions()
+    {
+        base.SpawnMinions(minion, 2, 1);
     }
 }

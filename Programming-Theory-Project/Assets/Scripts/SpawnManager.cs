@@ -9,13 +9,13 @@ public class SpawnManager : MonoBehaviour
 {
     // Encapsulation
     [SerializeField] private GameObject[] laserPrefabs;
+    [SerializeField] private GameObject[] powerUpPrefabs;
     [SerializeField] private GameObject[] enemyPrefabs;
     private float spawnRange = 20;
     private int waveCount = 1;
 
     private void Start()
     {
-        SpawnLaserPowerUp();
         SpawnEnemies(waveCount);
     }
 
@@ -24,6 +24,7 @@ public class SpawnManager : MonoBehaviour
         if(GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
         {
             if (waveCount % 2 == 0) { SpawnLaserPowerUp(); }
+            if (waveCount % 3 == 0) { SpawnPowerUp(); }
             waveCount++;
             SpawnEnemies(waveCount);
         }
@@ -60,6 +61,12 @@ public class SpawnManager : MonoBehaviour
     {
         int laserTypeIndex = Random.Range(0, laserPrefabs.Length);
         Instantiate(laserPrefabs[laserTypeIndex], GenerateRandomPosition(2), laserPrefabs[laserTypeIndex].transform.rotation);
+    }
+
+    private void SpawnPowerUp()
+    {
+        int powerUpIndex = Random.Range(0, powerUpPrefabs.Length);
+        Instantiate(powerUpPrefabs[powerUpIndex], GenerateRandomPosition(2), powerUpPrefabs[powerUpIndex].transform.rotation);
     }
 
     /// <summary>

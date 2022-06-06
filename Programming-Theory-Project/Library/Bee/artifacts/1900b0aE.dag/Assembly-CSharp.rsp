@@ -363,7 +363,10 @@
 "Assets/Scripts/Enemies/Pyramid_Mini.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/Laser.cs"
+"Assets/Scripts/MissileBehaviour.cs"
+"Assets/Scripts/PickUps.cs"
 "Assets/Scripts/PlayerController.cs"
+"Assets/Scripts/PowerUp.cs"
 "Assets/Scripts/SpawnManager.cs"
 -langversion:9.0
 

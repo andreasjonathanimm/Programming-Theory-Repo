@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7445645091053794160}
   - component: {fileID: 5542902176233655910}
   - component: {fileID: 2396212344325314245}
-  - component: {fileID: 6623006425900926692}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -84,20 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6623006425900926692
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3405458142510532079}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3848700275877384449
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,9 +92,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1648721134992592836}
+  - component: {fileID: 4366420356068920694}
+  - component: {fileID: 5195987906864939179}
   m_Layer: 0
   m_Name: Missile
-  m_TagString: Untagged
+  m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,6 +119,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -45, y: 0, z: 0}
+--- !u!114 &4366420356068920694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3848700275877384449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa12496c06327044817689f642e8bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpType: 2
+--- !u!65 &5195987906864939179
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3848700275877384449}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3464704, y: 1.8820747, z: 0.4921}
+  m_Center: {x: -0.031093478, y: 0.012674152, z: -0.0122253}
 --- !u!1 &4138536386243526076
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +156,6 @@ GameObject:
   - component: {fileID: 1064960927590659080}
   - component: {fileID: 9034013237857730086}
   - component: {fileID: 4672613470154465110}
-  - component: {fileID: 5332934796669856281}
   m_Layer: 0
   m_Name: Capsule (1)
   m_TagString: Untagged
@@ -216,20 +228,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5332934796669856281
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4138536386243526076}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5053371311486476370
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +239,6 @@ GameObject:
   - component: {fileID: 5371057269130800139}
   - component: {fileID: 6723639397662248483}
   - component: {fileID: 2582302227031387188}
-  - component: {fileID: 315126811944375124}
   m_Layer: 0
   m_Name: Capsule (2)
   m_TagString: Untagged
@@ -314,17 +311,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &315126811944375124
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5053371311486476370}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}

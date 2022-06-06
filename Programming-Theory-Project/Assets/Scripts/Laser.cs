@@ -11,17 +11,11 @@ using UnityEngine;
 /// <item>ABSOLUTE Spread</item>
 /// </list>
 /// </summary>
+
 public enum LaserType { Single, Tri, Spread, ABSSpread }
 
-public class Laser : MonoBehaviour
+// Inheritance
+public class Laser : PickUps
 {
     public LaserType laserType;
-
-    // Encapsulation
-    private float rotationSpeed = 100;
-
-    private void Update()
-    {
-        transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
-    }
 }

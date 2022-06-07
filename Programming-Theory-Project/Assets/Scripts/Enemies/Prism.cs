@@ -18,7 +18,7 @@ public class Prism : Enemy
     void Update()
     {
         Move();
-        speed = 1.5f / health;
+        speed = 1.75f / health;
         if (health <= 0)
         {
             Destroy(gameObject);

@@ -1317,6 +1317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
+  healthSlider: {fileID: 0}
   singleLaser: {fileID: 7532803419265652387}
   triLaser: {fileID: 1269355492192445347}
   spreadLaser: {fileID: 6388019252373311276}

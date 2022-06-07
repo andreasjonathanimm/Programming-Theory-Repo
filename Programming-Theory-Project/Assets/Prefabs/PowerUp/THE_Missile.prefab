@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7977558121524493951}
   - component: {fileID: 4043628986426256444}
   - component: {fileID: 6542224699080910739}
-  - component: {fileID: 5445753289570664321}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -84,20 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5445753289570664321
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1631103594036016890}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3302158486867922830
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7109050021537781456}
   - component: {fileID: 4065955233743124938}
+  - component: {fileID: 2065779429193131497}
   m_Layer: 0
   m_Name: THE_Missile
   m_TagString: Missile
@@ -143,3 +129,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e350c2f60c83fe428e5c780c4cec711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &2065779429193131497
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3302158486867922830}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.26250106, y: 0.98749995, z: 0.28135142}
+  m_Center: {x: 0.00000033527613, y: 0, z: -0.0031306297}

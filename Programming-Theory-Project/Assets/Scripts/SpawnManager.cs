@@ -12,7 +12,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private GameObject[] powerUpPrefabs;
     [SerializeField] private GameObject[] enemyPrefabs;
     private float spawnRange = 20;
-    private int waveCount = 1;
+    [SerializeField] private int waveCount = 1;
 
     private void Start()
     {
@@ -23,8 +23,7 @@ public class SpawnManager : MonoBehaviour
     {
         if(GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
         {
-            if (waveCount % 2 == 0) { SpawnLaserPowerUp(); }
-            if (waveCount % 3 == 0) { SpawnPowerUp(); }
+            if (waveCount % 2 == 0) { SpawnLaserPowerUp(); SpawnPowerUp(); }
             waveCount++;
             SpawnEnemies(waveCount);
         }
@@ -42,7 +41,7 @@ public class SpawnManager : MonoBehaviour
         float spawnPosZ = Random.Range(spawnRange/2, -spawnRange/2);
 
         // Loops until the position is not in range of spawnDistance of Player (Center point)
-        while (System.Math.Abs(spawnPosX) < spawnDistance || System.Math.Abs(spawnPosZ) < spawnDistance)
+        while (System.Math.Abs(spawnPosX) < spawnDistance && System.Math.Abs(spawnPosZ) < spawnDistance)
         {
             spawnPosX = Random.Range(spawnRange, -spawnRange);
             spawnPosZ = Random.Range(spawnRange/2, -spawnRange/2);
@@ -60,13 +59,13 @@ public class SpawnManager : MonoBehaviour
     private void SpawnLaserPowerUp()
     {
         int laserTypeIndex = Random.Range(0, laserPrefabs.Length);
-        Instantiate(laserPrefabs[laserTypeIndex], GenerateRandomPosition(2), laserPrefabs[laserTypeIndex].transform.rotation);
+        Instantiate(laserPrefabs[laserTypeIndex], GenerateRandomPosition(4), laserPrefabs[laserTypeIndex].transform.rotation);
     }
 
     private void SpawnPowerUp()
     {
         int powerUpIndex = Random.Range(0, powerUpPrefabs.Length);
-        Instantiate(powerUpPrefabs[powerUpIndex], GenerateRandomPosition(2), powerUpPrefabs[powerUpIndex].transform.rotation);
+        Instantiate(powerUpPrefabs[powerUpIndex], GenerateRandomPosition(4), powerUpPrefabs[powerUpIndex].transform.rotation);
     }
 
     /// <summary>
@@ -78,7 +77,7 @@ public class SpawnManager : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             int enemyIndex = Random.Range(0, enemyPrefabs.Length);
-            Instantiate(enemyPrefabs[enemyIndex], GenerateRandomPosition(8), enemyPrefabs[enemyIndex].transform.rotation);
+            Instantiate(enemyPrefabs[enemyIndex], GenerateRandomPosition(12), enemyPrefabs[enemyIndex].transform.rotation);
         }
     }
 }

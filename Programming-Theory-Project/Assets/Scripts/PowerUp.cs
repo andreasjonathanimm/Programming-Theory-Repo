@@ -11,7 +11,7 @@ using UnityEngine;
 /// </list>
 /// </summary>
 
-public enum PowerUpType { None, Shield, Missile, INFINITE_Laser }
+public enum PowerUpType { None, Shield, Missile, Health, STRONK_Laser }
 
 // Inheritance
 public class PowerUp : PickUps

@@ -12,15 +12,17 @@ public class MissileBehaviour : MonoBehaviour
     private float speed = 2;
     public float damage { get; private set; }
     private float aliveTimer = 8;
-    private bool isHoming;
 
     private void Update()
     {
-        if (isHoming && target != null)
+        if (target != null)
         {
             Vector3 moveDirection = (target.position - transform.position).normalized;
             transform.position += moveDirection * speed * Time.deltaTime;
             transform.LookAt(target);
+        } else
+        {
+            transform.position += transform.position.normalized * speed * Time.deltaTime;
         }
     }
 
@@ -31,8 +33,8 @@ public class MissileBehaviour : MonoBehaviour
     // Abstraction
     public void Fire(Transform newTarget)
     {
+        damage = 1.5f;
         target = newTarget;
-        isHoming = true;
         Destroy(gameObject, aliveTimer);
     }
 }

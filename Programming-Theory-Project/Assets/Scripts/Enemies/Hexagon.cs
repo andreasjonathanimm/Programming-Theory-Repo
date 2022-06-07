@@ -15,8 +15,8 @@ public class Hexagon : Enemy
     private void Start()
     {
         health = 6;
-        speed = 0.5f;
-        damage = 0.2f;
+        speed = 0.6f;
+        damage = 0.3f;
         InvokeRepeating("SpawnMinions", 1, 3);
     }
 
@@ -36,6 +36,6 @@ public class Hexagon : Enemy
 
     private void SpawnMinions()
     {
-        base.SpawnMinions(minion, 2, 1);
+        base.SpawnMinions(minion, 3, 1);
     }
 }

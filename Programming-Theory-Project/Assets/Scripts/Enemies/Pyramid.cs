@@ -12,7 +12,7 @@ public class Pyramid : Enemy
     void Start()
     {
         health = 3;
-        speed = 0.7f;
+        speed = 1;
         damage = 1;
     }
 

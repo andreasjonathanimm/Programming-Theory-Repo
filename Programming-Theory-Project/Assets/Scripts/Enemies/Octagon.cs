@@ -14,7 +14,7 @@ public class Octagon : Enemy
     // Polymorphism
     private void Start()
     {
-        speed = 0.375f;
+        speed = 0.4f;
         health = 8;
     }
 

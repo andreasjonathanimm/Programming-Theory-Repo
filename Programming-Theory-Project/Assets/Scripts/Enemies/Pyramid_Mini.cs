@@ -12,7 +12,7 @@ public class Pyramid_Mini : Enemy
     void Start()
     {
         health = 0.5f;
-        speed = 1.2f;
+        speed = 1.45f;
         damage = 0.1f;
     }
 

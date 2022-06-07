@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
     {
         // If it isn't game over, do two things:
         // 1. If the Enemy collides with the Player, damages the Player and destroy self
-        // 2. If the Enemy collides with the Laser or a Missile, damages the Enemy
+        // 2. If the Enemy collides with the Laser or a Missile, damages the Enemy and heals the Player
         
         if (!playerController.gameOver)
         {
@@ -75,10 +75,13 @@ public class Enemy : MonoBehaviour
             if (other.gameObject.CompareTag("Laser"))
             {
                 Damage(playerController.laserDamage);
+                StartCoroutine(playerController.Heal(playerController.laserDamage/200));
             }
             if (other.gameObject.CompareTag("Missile"))
             {
                 Damage(other.gameObject.GetComponent<MissileBehaviour>().damage);
+                StartCoroutine(playerController.Heal(0.005f));
+                Destroy(other.gameObject);
             }
         }
     }

@@ -12,13 +12,13 @@ public class Cube : Enemy
     private void Start()
     {
         health = 4;
-        speed = 0.6f;
+        speed = 0.75f;
     }
 
     private void Update()
     {
         Move();
-        damage = 0.2f * GameObject.FindGameObjectsWithTag("Enemy").Length;
+        damage = 0.25f * GameObject.FindGameObjectsWithTag("Enemy").Length;
         if(health <= 0)
         {
             Destroy(gameObject);

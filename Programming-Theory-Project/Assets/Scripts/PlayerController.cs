@@ -21,9 +21,12 @@ public class PlayerController : MonoBehaviour
     private bool isShooting = false;
     private bool isMissileReady = true;
     private bool hasPowerUp = false;
+    private bool isHeal = true;
+    private bool isOverHeal = false;
     public bool gameOver { get; private set; }
 
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private Slider healthSlider;
 
     [SerializeField] private GameObject singleLaser;
     [SerializeField] private GameObject triLaser;
@@ -56,20 +59,30 @@ public class PlayerController : MonoBehaviour
                 ShootLasers();
             }
 
+            // PowerUp Check
             if(currentPowerUp == PowerUpType.Missile && isMissileReady)
             {
                 StartCoroutine(ShootMissiles());
                 isMissileReady = false;
             }
 
-            if (currentPowerUp == PowerUpType.INFINITE_Laser)
+            if (currentPowerUp == PowerUpType.Health && isHeal)
             {
-                laserAlive = 5;
-            } else
-            {
-                laserAlive = 0.25f;
+                StartCoroutine(Heal(0.3f));
+                isHeal = false;
             }
+
+            CheckHealth();
         }
+    }
+
+    private void CheckHealth()
+    {
+        if (health > 3.14f && !isOverHeal)
+        {
+            StartCoroutine(OverHeal());
+        }
+        healthSlider.value = health * 100;
     }
 
     /// <summary>
@@ -82,25 +95,29 @@ public class PlayerController : MonoBehaviour
         if (currentLaser == LaserType.Single)
         {
             shootSpeed = 2;
-            laserDamage = 1;
+            laserDamage = 1.5f;
         }
 
         if (currentLaser == LaserType.Tri)
         {
             shootSpeed = 3;
-            laserDamage = 0.75f;
+            laserDamage = 0.5f;
         }
 
         if (currentLaser == LaserType.Spread)
         {
             shootSpeed = 5;
-            laserDamage = 0.4f;
+            laserDamage = 0.25f;
         }
 
         if (currentLaser == LaserType.ABSSpread)
         {
             shootSpeed = 10;
-            laserDamage = 0.2f;
+            laserDamage = 0.15f;
+        }
+        if (currentPowerUp == PowerUpType.STRONK_Laser)
+        {
+            laserDamage *= 3;
         }
     }
 
@@ -147,6 +164,21 @@ public class PlayerController : MonoBehaviour
         isMissileReady = true;
     }
 
+    public IEnumerator Heal(float healingPoints)
+    {
+        health += healingPoints;
+        yield return new WaitForSeconds(1);
+        isHeal = true;
+    }
+
+    IEnumerator OverHeal()
+    {
+        isOverHeal = true;
+        health -= health/314;
+        yield return new WaitForSeconds(0.1f);
+        isOverHeal = false;
+    }
+
     /// <summary>
     /// Damages the Player while not shielded
     /// </summary>
@@ -162,6 +194,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Adds up the score
+    /// </summary>
+    /// <param name="score"></param>
+    // Abstraction
     public void AddScore(float score)
     {
         this.score += score;

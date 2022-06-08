@@ -362,6 +362,7 @@
 "Assets/Scripts/Enemies/Pyramid.cs"
 "Assets/Scripts/Enemies/Pyramid_Mini.cs"
 "Assets/Scripts/GameManager.cs"
+"Assets/Scripts/HighScore.cs"
 "Assets/Scripts/Laser.cs"
 "Assets/Scripts/MissileBehaviour.cs"
 "Assets/Scripts/PickUps.cs"

@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private float health = 3.14f;
     private float rotationSpeed = 100;
     private float shootSpeed = 0.5f;
-    private float score = 0;
+    public float score { get; private set; }
     public float laserDamage { get; private set; }
     private float laserAlive = 0.25f;
     private float powerUpTime = 5;
@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     private bool isOverHeal = false;
     public bool gameOver { get; private set; }
 
+    [SerializeField] private TextMeshProUGUI gameOverText;
+    [SerializeField] private TextMeshProUGUI continueText;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private Slider healthSlider;
 
@@ -39,9 +41,12 @@ public class PlayerController : MonoBehaviour
     private LaserType currentLaser = LaserType.Single;
     private PowerUpType currentPowerUp;
 
+    private GameManager gameManager;
+
     private void Start()
     {
         gameOver = false;
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void Update()
@@ -73,6 +78,9 @@ public class PlayerController : MonoBehaviour
             }
 
             CheckHealth();
+        } else if (Input.GetKeyDown(KeyCode.Space))
+        {
+            gameManager.LoadMenu();
         }
     }
 
@@ -190,7 +198,7 @@ public class PlayerController : MonoBehaviour
         health -= damage;
         if(health <= 0)
         {
-            gameOver = true;
+            GameOver();
         }
     }
 
@@ -230,6 +238,17 @@ public class PlayerController : MonoBehaviour
         powerUp_Indicator.gameObject.SetActive(false);
         currentPowerUp = PowerUpType.None;
         hasPowerUp = false;
+    }
+
+    /// <summary>
+    /// Ends the game
+    /// </summary>
+    // Abstraction
+    private void GameOver()
+    {
+        gameOver = true;
+        gameOverText.gameObject.SetActive(true);
+        continueText.gameObject.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     public bool gameOver { get; private set; }
 
     [SerializeField] private TextMeshProUGUI gameOverText;
-    [SerializeField] private TextMeshProUGUI continueText;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private Slider healthSlider;
 
@@ -78,9 +77,6 @@ public class PlayerController : MonoBehaviour
             }
 
             CheckHealth();
-        } else if (Input.GetKeyDown(KeyCode.Space))
-        {
-            gameManager.LoadMenu();
         }
     }
 
@@ -248,7 +244,16 @@ public class PlayerController : MonoBehaviour
     {
         gameOver = true;
         gameOverText.gameObject.SetActive(true);
-        continueText.gameObject.SetActive(true);
+    }
+
+    /// <summary>
+    /// To return to the menu
+    /// </summary>
+    // Abstraction
+    public void ReturnToMenu()
+    {
+        GameOver();
+        if (gameManager != null) { gameManager.LoadMenu(); }
     }
 
     private void OnTriggerEnter(Collider other)

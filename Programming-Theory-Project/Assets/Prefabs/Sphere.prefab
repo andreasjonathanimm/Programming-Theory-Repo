@@ -1316,6 +1316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c84c2b2704212e441969f0d92b734a31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverText: {fileID: 0}
   scoreText: {fileID: 0}
   healthSlider: {fileID: 0}
   singleLaser: {fileID: 7532803419265652387}

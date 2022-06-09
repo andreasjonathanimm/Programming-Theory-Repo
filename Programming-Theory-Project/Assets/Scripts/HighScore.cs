@@ -14,7 +14,7 @@ public class HighScore : MonoBehaviour
     private PlayerController playerController;
     [SerializeField] private TextMeshProUGUI bestScoreText;
 
-    private void Awake()
+    private void Start()
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
@@ -40,7 +40,7 @@ public class HighScore : MonoBehaviour
     {
         // If the Player scored more than the best score, starts increasing the best score;
         // Once it's game over, save the new best score
-        if(playerController.score > score)
+        if(playerController.score >= score)
         {
             score = playerController.score;
             bestScoreText.text = "Best Score: " + score;
@@ -52,15 +52,16 @@ public class HighScore : MonoBehaviour
     }
 
     // Abstraction
-    private void SaveBestScore(float score)
+    private void SaveBestScore(float newScore)
     {
         // Declare a new highscore
-        TheHighScore tempHighscore = new TheHighScore() { score = score };
+        TheHighScore tempHighscore = new TheHighScore() { score = newScore };
 
+        // Load the highscore
         string jsonString = PlayerPrefs.GetString("highscore");
         TheHighScore highscore = JsonUtility.FromJson<TheHighScore>(jsonString);
 
-        highscore = tempHighscore;
+        highscore.score = tempHighscore.score;
 
         string json = JsonUtility.ToJson(highscore);
         PlayerPrefs.SetString("highscore", json);

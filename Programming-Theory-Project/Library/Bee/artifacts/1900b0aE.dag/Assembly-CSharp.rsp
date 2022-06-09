@@ -364,6 +364,7 @@
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/HighScore.cs"
 "Assets/Scripts/Laser.cs"
+"Assets/Scripts/MenuManager.cs"
 "Assets/Scripts/MissileBehaviour.cs"
 "Assets/Scripts/PickUps.cs"
 "Assets/Scripts/PlayerController.cs"

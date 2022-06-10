@@ -42,10 +42,14 @@ public class PlayerController : MonoBehaviour
 
     private GameManager gameManager;
 
+    [SerializeField] private AudioClip laserClip;
+    [SerializeField] private AudioClip windClip;
+    private AudioSource audioSource;
     private void Start()
     {
         gameOver = false;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -132,6 +136,7 @@ public class PlayerController : MonoBehaviour
     private void ShootLasers()
     {
         if (isShooting) return;
+        audioSource.PlayOneShot(laserClip, 0.8f);
         if (currentLaser == LaserType.Single)
         {
             isShooting = true;
@@ -244,6 +249,8 @@ public class PlayerController : MonoBehaviour
     {
         gameOver = true;
         gameOverText.gameObject.SetActive(true);
+        audioSource.Stop();
+        audioSource.PlayOneShot(windClip, 0.8f);
     }
 
     /// <summary>

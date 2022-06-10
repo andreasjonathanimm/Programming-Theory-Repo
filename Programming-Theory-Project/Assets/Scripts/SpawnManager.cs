@@ -21,7 +21,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Update()
     {
-        if(GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
+        if(GameObject.FindGameObjectsWithTag("Enemy").Length <= 1)
         {
             if (waveCount % 2 == 0) { SpawnLaserPowerUp(); SpawnPowerUp(); }
             waveCount++;

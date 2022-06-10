@@ -84,5 +84,9 @@ public class Enemy : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
+        if(other.gameObject.CompareTag("Finish"))
+        {
+            transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
+        }
     }
 }

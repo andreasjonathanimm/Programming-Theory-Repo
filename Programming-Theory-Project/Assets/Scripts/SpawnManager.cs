@@ -11,7 +11,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private GameObject[] laserPrefabs;
     [SerializeField] private GameObject[] powerUpPrefabs;
     [SerializeField] private GameObject[] enemyPrefabs;
-    private float spawnRange = 20;
+    private float spawnRange = 25;
     [SerializeField] private int waveCount = 1;
 
     private void Start()
@@ -53,7 +53,7 @@ public class SpawnManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Spawns a random LaserType in range of more than 2 distance of Player
+    /// Spawns a random LaserType in range of more than 4 distance of Player
     /// </summary>
     // Abstraction
     private void SpawnLaserPowerUp()
@@ -69,7 +69,7 @@ public class SpawnManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Spawns a random Enemy in range of more than 8 distance of Player
+    /// Spawns a random Enemy in range of more than 10 distance of Player
     /// </summary>
     // Abstraction
     private void SpawnEnemies(int count)

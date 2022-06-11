@@ -686,7 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d4749176fb7bf4fad3f643a447a567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayLength: 0.4
+  dayLength: 0.3
 --- !u!1 &708930097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,7 +1679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6075444075127620745, guid: 4a2052e312078134db9b1df02fd622ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.52
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 6075444075127620745, guid: 4a2052e312078134db9b1df02fd622ff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1687,7 +1687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6075444075127620745, guid: 4a2052e312078134db9b1df02fd622ff, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 6075444075127620745, guid: 4a2052e312078134db9b1df02fd622ff, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1695,7 +1695,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6075444075127620745, guid: 4a2052e312078134db9b1df02fd622ff, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 6075444075127620745, guid: 4a2052e312078134db9b1df02fd622ff, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1707,7 +1707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6075444075127620745, guid: 4a2052e312078134db9b1df02fd622ff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6075444075127620745, guid: 4a2052e312078134db9b1df02fd622ff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

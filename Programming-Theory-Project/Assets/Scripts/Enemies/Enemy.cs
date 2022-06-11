@@ -30,6 +30,10 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         transform.LookAt(player.transform);
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        if (System.Math.Abs(transform.position.x) > 50 || System.Math.Abs(transform.position.z) > 50 || System.Math.Abs(transform.position.y) > 0.75f)
+        {
+            transform.position = new Vector3(18, 0.5f, 18);
+        }
     }
 
     /// <summary>

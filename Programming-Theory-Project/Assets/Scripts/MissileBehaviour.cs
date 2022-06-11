@@ -11,7 +11,7 @@ public class MissileBehaviour : MonoBehaviour
     private Transform target;
     private float speed = 2;
     public float damage { get; private set; }
-    private float aliveTimer = 8;
+    private float aliveTimer = 12;
 
     private void Update()
     {
@@ -22,6 +22,7 @@ public class MissileBehaviour : MonoBehaviour
             transform.LookAt(target);
         } else
         {
+            transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
             transform.position += transform.position.normalized * speed * Time.deltaTime;
         }
     }

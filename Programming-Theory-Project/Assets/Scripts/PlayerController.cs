@@ -11,13 +11,11 @@ public class PlayerController : MonoBehaviour
 {
     // Encapsulation
     private float health = 3.14f;
-    private float rotationSpeed = 100;
     private float shootSpeed = 0.5f;
     public float score { get; private set; }
     public float laserDamage { get; private set; }
     private float laserAlive = 0.25f;
     private float powerUpTime = 5;
-    private float horizontalInput;
     private bool isShooting = false;
     private bool isMissileReady = true;
     private bool hasPowerUp = false;
@@ -44,6 +42,11 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private AudioClip laserClip;
     [SerializeField] private AudioClip windClip;
+    [SerializeField] private AudioClip hurtClip;
+    [SerializeField] private AudioClip shieldClip;
+    [SerializeField] private AudioClip missileClip;
+    [SerializeField] private AudioClip STRONKClip;
+    [SerializeField] private AudioClip healClip;
     private AudioSource audioSource;
     private void Start()
     {
@@ -57,11 +60,13 @@ public class PlayerController : MonoBehaviour
         if (!gameOver)
         {
             // Rotates horizontally
-            horizontalInput = Input.GetAxis("Horizontal");
-            transform.Rotate(Vector3.up, rotationSpeed * horizontalInput * Time.deltaTime);
+            Vector3 objectPosition = Camera.main.WorldToScreenPoint(transform.position);
+            objectPosition = Input.mousePosition - objectPosition;
+            float angle = Mathf.Atan2(objectPosition.y, objectPosition.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.down);
 
             // Checks current LaserType and fires it
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
             {
                 CheckLaserType();
                 ShootLasers();
@@ -137,6 +142,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isShooting) return;
         audioSource.PlayOneShot(laserClip, 0.8f);
+        if (currentPowerUp == PowerUpType.STRONK_Laser) { audioSource.PlayOneShot(STRONKClip, 0.5f); }
         if (currentLaser == LaserType.Single)
         {
             isShooting = true;
@@ -164,6 +170,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator ShootMissiles()
     {
+        audioSource.PlayOneShot(missileClip, 0.8f);
         foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
         {
             GameObject tmpMissile = Instantiate(missilePrefab, gameObject.transform.position, missilePrefab.transform.rotation);
@@ -176,6 +183,7 @@ public class PlayerController : MonoBehaviour
     public IEnumerator Heal(float healingPoints)
     {
         health += healingPoints;
+        audioSource.PlayOneShot(healClip, healingPoints + 0.1f);
         yield return new WaitForSeconds(1);
         isHeal = true;
     }
@@ -195,8 +203,9 @@ public class PlayerController : MonoBehaviour
     // Abstraction
     public void Damage(float damage)
     {
-        if (currentPowerUp == PowerUpType.Shield) { return; }
+        if (currentPowerUp == PowerUpType.Shield) { audioSource.PlayOneShot(shieldClip, 0.6f); Heal(damage/5); return; }
         health -= damage;
+        audioSource.PlayOneShot(hurtClip, 1);
         if(health <= 0)
         {
             GameOver();
@@ -234,6 +243,7 @@ public class PlayerController : MonoBehaviour
     // Abstraction
     IEnumerator PowerUpCooldown()
     {
+        hasPowerUp = true;
         powerUp_Indicator.gameObject.SetActive(true);
         yield return new WaitForSeconds(powerUpTime);
         powerUp_Indicator.gameObject.SetActive(false);
@@ -250,7 +260,7 @@ public class PlayerController : MonoBehaviour
         gameOver = true;
         gameOverText.gameObject.SetActive(true);
         audioSource.Stop();
-        audioSource.PlayOneShot(windClip, 0.8f);
+        audioSource.PlayOneShot(windClip, 1);
     }
 
     /// <summary>
@@ -274,8 +284,8 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("PowerUp") && !hasPowerUp)
         {
             currentPowerUp = other.gameObject.GetComponent<PowerUp>().powerUpType;
-            Destroy(other.gameObject);
             StartCoroutine(PowerUpCooldown());
+            Destroy(other.gameObject);
         }
     }
 }

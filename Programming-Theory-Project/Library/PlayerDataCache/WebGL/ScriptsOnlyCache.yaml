@@ -131,53 +131,53 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1792}
+      Script: {instanceID: 1794}
     - Class: 114
-      Script: {instanceID: 2922}
+      Script: {instanceID: 2924}
     - Class: 114
-      Script: {instanceID: 3002}
+      Script: {instanceID: 3004}
     - Class: 114
-      Script: {instanceID: 3166}
+      Script: {instanceID: 3168}
     - Class: 114
-      Script: {instanceID: 3498}
+      Script: {instanceID: 3500}
     - Class: 114
-      Script: {instanceID: 3606}
+      Script: {instanceID: 3608}
     - Class: 114
-      Script: {instanceID: 4368}
+      Script: {instanceID: 4372}
     - Class: 114
-      Script: {instanceID: 4580}
+      Script: {instanceID: 4586}
     - Class: 114
-      Script: {instanceID: 4830}
+      Script: {instanceID: 4838}
     - Class: 114
-      Script: {instanceID: 5136}
+      Script: {instanceID: 5148}
     - Class: 114
-      Script: {instanceID: 5226}
+      Script: {instanceID: 5238}
     - Class: 114
-      Script: {instanceID: 5394}
+      Script: {instanceID: 5406}
     - Class: 114
-      Script: {instanceID: 5604}
+      Script: {instanceID: 5616}
     - Class: 114
-      Script: {instanceID: 5728}
+      Script: {instanceID: 5742}
     - Class: 114
-      Script: {instanceID: 5818}
+      Script: {instanceID: 5832}
     - Class: 114
-      Script: {instanceID: 5960}
+      Script: {instanceID: 5974}
     - Class: 114
-      Script: {instanceID: 6302}
+      Script: {instanceID: 6318}
     - Class: 114
-      Script: {instanceID: 6492}
+      Script: {instanceID: 6510}
     - Class: 114
-      Script: {instanceID: 6658}
+      Script: {instanceID: 6678}
     - Class: 114
-      Script: {instanceID: 6740}
+      Script: {instanceID: 6762}
     - Class: 114
-      Script: {instanceID: 7048}
+      Script: {instanceID: 7074}
     - Class: 114
-      Script: {instanceID: 7790}
+      Script: {instanceID: 7818}
     - Class: 114
-      Script: {instanceID: 8916}
+      Script: {instanceID: 8950}
     - Class: 114
-      Script: {instanceID: 9002}
+      Script: {instanceID: 9036}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -240,31 +240,31 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1792}
+      Script: {instanceID: 1794}
     - Class: 114
-      Script: {instanceID: 1910}
+      Script: {instanceID: 1912}
     - Class: 114
-      Script: {instanceID: 2462}
+      Script: {instanceID: 2464}
     - Class: 114
-      Script: {instanceID: 2922}
+      Script: {instanceID: 2924}
     - Class: 114
-      Script: {instanceID: 3166}
+      Script: {instanceID: 3168}
     - Class: 114
-      Script: {instanceID: 3498}
+      Script: {instanceID: 3500}
     - Class: 114
-      Script: {instanceID: 4666}
+      Script: {instanceID: 4672}
     - Class: 114
-      Script: {instanceID: 4864}
+      Script: {instanceID: 4874}
     - Class: 114
-      Script: {instanceID: 4964}
+      Script: {instanceID: 4976}
     - Class: 114
-      Script: {instanceID: 5818}
+      Script: {instanceID: 5832}
     - Class: 114
-      Script: {instanceID: 6492}
+      Script: {instanceID: 6510}
     - Class: 114
-      Script: {instanceID: 6658}
+      Script: {instanceID: 6678}
     - Class: 114
-      Script: {instanceID: 7048}
+      Script: {instanceID: 7074}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1220,5 +1220,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/Main.unity
-  playerPath: D:/Jojo_Data/Coding/Create with Code/Programming-Theory-Repo/Programming-Theory-Project/WebGL
-    Builds
+  playerPath: D:/Jojo_Data/Coding/Create with Code/Builds/Pointless_WebGL Builds

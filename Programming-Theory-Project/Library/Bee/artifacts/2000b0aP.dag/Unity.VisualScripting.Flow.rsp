@@ -276,6 +276,7 @@
 -r:"D:/Jojo_Data/Coding/2021.3.3f1/Editor/Data/PlaybackEngines/WebGLSupport/Managed/UnityEngine.VFXModule.dll"
 -r:"D:/Jojo_Data/Coding/2021.3.3f1/Editor/Data/PlaybackEngines/WebGLSupport/Managed/UnityEngine.VideoModule.dll"
 -r:"D:/Jojo_Data/Coding/2021.3.3f1/Editor/Data/PlaybackEngines/WebGLSupport/Managed/UnityEngine.VRModule.dll"
+-r:"D:/Jojo_Data/Coding/2021.3.3f1/Editor/Data/PlaybackEngines/WebGLSupport/Managed/UnityEngine.WebGLModule.dll"
 -r:"D:/Jojo_Data/Coding/2021.3.3f1/Editor/Data/PlaybackEngines/WebGLSupport/Managed/UnityEngine.WindModule.dll"
 -r:"D:/Jojo_Data/Coding/2021.3.3f1/Editor/Data/PlaybackEngines/WebGLSupport/Managed/UnityEngine.XRModule.dll"
 -r:"D:/Jojo_Data/Coding/Create with Code/Programming-Theory-Repo/Programming-Theory-Project/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/AOT/Newtonsoft.Json.dll"
